@@ -37,13 +37,11 @@
         .pickup-list
           = link_to "/", class: "productdetail-link" do
             .pickup-list__photo
-              - @product.each do |product|
-                = product.src
+              = image_tag("material/products/medical_mask_urethane.png", class: "pickupproduct-image")
             .pickup-list__text
               .product-name
                 - @products.each do |product|
                   = product.name
-                  -# = link_to item_path(id: item.id) ,class:
               .product-details
                 %ul
                   %li.price

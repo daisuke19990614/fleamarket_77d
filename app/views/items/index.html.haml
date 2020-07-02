@@ -19,8 +19,6 @@
           = link_to 'ブランド','#',class:'btn'
       %ul.right-lists
       - if user_signed_in?
-        %li.right-lists--left
-          = link_to 'マイページ', '#', class:'btn'
         %li.right-lists--right
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'btn'
       - else
@@ -135,24 +133,23 @@
       = link_to "もっと見る", '/products'
     .pickup-products
       .pickup-products__head
-        = link_to "新規投稿商品", '#', class: "pickup-link"
+        = link_to "新規投稿商品", '/', class: "pickup-link"
       .pickup-lists
         .pickup-list
-          = link_to product_path(@products.ids), class: "productdetail-link" do
+          = link_to "/products/:id", class: "productdetail-link" do
             .pickup-list__photo
               = image_tag("material/products/medical_mask_urethane.png", class: "pickupproduct-image")
             .pickup-list__text
-              - @products.each do |product|
-                .product-name
-                  = product.name
-                .product-details
-                  %ul
-                    %li.price
-                      = product.pricing
-                    %li.like
-                      ★0
-                  .tax
-                    （税込）
+              .product-name
+                マスク
+              .product-details
+                %ul
+                  %li.price
+                    1000円
+                  %li.like
+                    ★0
+                .tax
+                  （税込）
         .pickup-list
           = link_to "/", class: "productdetail-link" do
             .pickup-list__photo
